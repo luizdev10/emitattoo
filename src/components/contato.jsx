@@ -178,7 +178,7 @@ export default function Contato() {
             </div>
             <button
               type="submit"
-              className="mt-4 flex items-center justify-center gap-2 border border-amber-100/40 py-4 tracking-widest text-amber-100 transition-colors hover:bg-amber-100 hover:text-neutral-900"
+              className="mt-4 flex items-center justify-center gap-2 rounded-lg border border-amber-100/40 py-4 tracking-widest text-amber-100 transition-colors hover:bg-amber-100 hover:text-neutral-900"
             >
               <MessageCircle className="h-5 w-5" strokeWidth={1.25} />
               CHAMAR NO WHATSAPP

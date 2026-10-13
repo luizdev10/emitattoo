@@ -1,4 +1,4 @@
-import backP from "../assets/img/sobrePE.PNG";
+import backP from "../assets/img/sobrePE.png";
 import fotoSobre from "../assets/img/fotosobre.png";
 import { ScrollText } from "lucide-react";
 

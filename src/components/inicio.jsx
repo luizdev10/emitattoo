@@ -1,35 +1,57 @@
-import React from "react";
-import bgWorks from "../assets/img/bg-works.png";
-import { MoveRight } from "lucide-react";
+import fotoPedro from "../assets/img/bg-works.webp";
+import {LayerArrowDown} from "lucide-react";
+
+const NUMERO_WHATS = "5588988151026";
 
 function Inicio() {
-    const NUMERO_WHATS = "5588988151026";
     const texto = "Olá Pedro! Quero fazer uma tatuagem";
     const mensagem = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent(texto)}`;
-    return (
-        <section id="inicio" className="relative flex min-h-svh w-full items-center overflow-hidden bg-neutral-950 pt-20 pb-12">
-            <div
-                className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-25 lg:bg-top"
-                style={{ backgroundImage: `url(${bgWorks})` }}
-            />
-            <div className="absolute inset-0  from-black/70 via-transparent to-neutral-900 " />
-            <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col px-6 sm:px-10 lg:px-16">
-                <h1 className="font-[Pirata_One] text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-wide sm:tracking-widest text-gray-200 drop-shadow-lg">
-                    PEDRO MENEZES
-                </h1>
 
-                <p className="mt-4 md:mt-6 max-w-lg text-lg sm:text-xl md:text-2xl font-light leading-relaxed tracking-wide text-gray-300 font-[Medula_One]">
-                    Mais do que uma tatuagem, uma forma de expressar quem você é. Cada ideia nasce de uma história e ganha vida em uma arte feita com cuidado, personalidade e atenção a cada detalhe para que ela seja única e tenha significado para você.
-                </p>
-                <a
-                    href={mensagem}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative isolate mt-8 md:mt-10 inline-flex w-fit items-center gap-4 overflow-hidden rounded-sm border border-amber-100/60 px-6 py-3 text-lg font-medium tracking-wide text-amber-50 transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:-translate-x-full before:bg-amber-100 before:transition-transform before:duration-500 hover:text-neutral-950 hover:before:translate-x-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-100"
-                >
-                    <span>Fale comigo</span>
-                    <MoveRight className="transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+    return (
+        <section id="inicio" className="relative w-full overflow-hidden bg-tinta pt-16">
+            <div className="mx-auto grid min-h-[calc(100svh-4rem)] max-w-6xl items-center gap-12 px-4 py-14 sm:px-6 md:grid-cols-[1.2fr_1fr] md:gap-16">
+                <div>
+                    <h1 className="revela font-gotica text-[clamp(4.25rem,14vw,10.5rem)] lowercase leading-[0.82] text-papel">
+                        pedro
+                        <br />
+                        menezes
+                    </h1>
+
+                    <p className="mt-8 max-w-md text-lg leading-relaxed text-cinza">
+                        Tatuagem realista em black and grey, em Juazeiro do Norte.
+                        Cada desenho nasce da sua história e é pensado para ser só seu.
+                    </p>
+
+                    <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4">
+                        <a
+                            href={mensagem}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="rounded-sm bg-papel px-6 py-3.5 font-medium text-tinta transition-all duration-500 ease-in-out hover:bg-gray-500 hover:text-white"
+                        >
+                            Pedir orçamento no WhatsApp
+                        </a>
+                        <a
+                            href="#trabalhos"
+                            className="text-white font-medium p-3 bg-gray-500 rounded-sm transition-all duration-500 ease-in-out hover:bg-papel hover:text-tinta"
+                        >
+                            Ver trabalhos
+                        </a>
+                    </div>
+                </div>
+
+                <figure className="surge relative mx-auto w-full max-w-sm md:max-w-none">
+                   
+                    <div
+                        aria-hidden="true"
+                        className="absolute inset-0 translate-x-3 translate-y-3 rounded-sm border-1 border-solid border-stencil-claro sm:translate-x-5 sm:translate-y-5"
+                    />
+                    <img
+                        src={fotoPedro}
+                        alt="Pedro Menezes calçando as luvas antes de tatuar"
+                        className="relative aspect-[4/5] w-full rounded-sm object-cover object-[72%_center] grayscale contrast-120"
+                    />
+                </figure>
             </div>
         </section>
     );

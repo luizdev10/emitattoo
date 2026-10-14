@@ -1,78 +1,83 @@
-import { useState } from "react";
-import { TextAlignEnd, SquareArrowRightExit } from "lucide-react"
+import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
+
+const itens = [
+    { id: "inicio", label: "Início" },
+    { id: "trabalhos", label: "Trabalhos" },
+    { id: "sobre", label: "Sobre" },
+    { id: "contato", label: "Contato" },
+];
 
 function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [tracoAtive, setTracoAtive] = useState("inicio");
+    const [ativo, setAtivo] = useState("inicio");
 
-    const menuitensAtive = [
-        { id: "inicio", label: "INÍCIO" },
-        { id: "trabalhos", label: "TRABALHOS" },
-        { id: "sobre", label: "SOBRE" },
-        { id: "contato", label: "CONTATO" },
-    ];
+    // Marca no menu a seção que está no meio da tela
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entradas) => entradas.forEach((e) => e.isIntersecting && setAtivo(e.target.id)),
+            { rootMargin: "-45% 0px -50% 0px" }
+        );
+        itens.forEach(({ id }) => {
+            const el = document.getElementById(id);
+            if (el) observer.observe(el);
+        });
+        return () => observer.disconnect();
+    }, []);
 
     const clique = (e, id) => {
         e.preventDefault();
-        setTracoAtive(id);
         setMenuOpen(false);
-
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     };
 
-    return (
-        <nav className="bg-black text-zinc-100 fixed w-full top-0 left-0 z-50 bg-blo ">
-            <div className="mx-auto flex h-20 max-w-7xl items-center justify-around px-5">
-                <img
-                    src="logo.jpeg"
-                    alt="LOGO"
-                    className="h-20 w-25"
-                />
+    const link = (item, extra = "") => (
+        <a
+            href={`#${item.id}`}
+            onClick={(e) => clique(e, item.id)}
+            aria-current={ativo === item.id ? "true" : undefined}
+            className={`relative block transition-colors ${extra} ${
+                ativo === item.id ? "text-papel" : "text-cinza hover:text-papel"
+            }`}
+        >
+            {item.label}
+            {ativo === item.id && (
+                <span className="linha-stencil absolute inset-x-0 -bottom-2 text-stencil-claro" />
+            )}
+        </a>
+    );
 
-                <ul className="hidden items-center gap-8 font-[Medula_One] text-4xl md:flex">
-                    {menuitensAtive.map((item) => (
-                        <li key={item.id}>
-                            <a
-                                href={`#${item.id}`}
-                                onClick={(e) => clique(e, item.id)}
-                                className={`pb-1 transition-all ${tracoAtive === item.id
-                                        ? "border-b-4 border-amber-200 font-bold"
-                                        : ""
-                                    }`}
-                            >
-                                {item.label}
-                            </a>
-                        </li>
+    return (
+        <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-tinta">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+                <a href="#inicio" onClick={(e) => clique(e, "inicio")} className="block h-12 w-[72px] overflow-hidden" aria-label="Pedro Menezes Tattoo, voltar ao início">
+                    <img
+                        src={`${import.meta.env.BASE_URL}logo.jpeg`}
+                        alt=""
+                        className="h-full w-full scale-150 object-cover"
+                    />
+                </a>
+
+                <ul className="hidden items-center gap-9 font-texto text-[15px] font-medium md:flex">
+                    {itens.map((item) => (
+                        <li key={item.id}>{link(item)}</li>
                     ))}
                 </ul>
 
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="text-3xl md:hidden"
+                    aria-expanded={menuOpen}
+                    aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+                    className="p-2 text-papel md:hidden"
                 >
-                    {menuOpen ? <SquareArrowRightExit /> : <TextAlignEnd />}
+                    {menuOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
                 </button>
             </div>
 
-
             {menuOpen && (
-                <ul className="flex justify-center items-center gap-4 py-4 text-gray-100 font-[Medula_One] md:hidden">
-                    {menuitensAtive.map((item) => (
-                        <li key={item.id}>
-                            <a
-                                href={`#${item.id}`}
-                                onClick={(e) => clique(e, item.id)}
-                                className={`pb-1 transition-all text-3xl ${tracoAtive === item.id
-                                        ? "border-b-4 border-amber-200"
-                                        : ""
-                                    }`}
-                            >
-                                {item.label}
-                            </a>
-                        </li>
+                <ul className="flex flex-col gap-1 border-t border-white/10 px-4 pb-6 pt-3 font-texto text-lg md:hidden">
+                    {itens.map((item) => (
+                        <li key={item.id}>{link(item, "w-fit py-2")}</li>
                     ))}
                 </ul>
             )}

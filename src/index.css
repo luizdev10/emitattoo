@@ -1,18 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Medula+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
-
-
 @import "tailwindcss";
+
+/* Tinta preta do black and grey + roxo do stencil (papel de decalque) */
+@theme {
+  --color-tinta: #000000;
+  --color-grafite: #161514;
+  --color-cinza: #8c8883;
+  --color-papel: #eceaf2;
+  --color-stencil: #4a3d9e;
+  --color-stencil-claro: #a99cf2;
+
+  --font-gotica: "Pirata One", serif;
+  --font-texto: "Archivo", system-ui, sans-serif;
+}
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  background: var(--color-tinta);
+  color: var(--color-papel);
+  font-family: var(--font-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-stencil-claro);
+  outline-offset: 3px;
 }
 
 #trabalhos img {
   -webkit-user-drag: none;
   user-select: none;
+}
+
+/* Linha pontilhada de stencil — único ornamento do site */
+.linha-stencil {
+  height: 6px;
+  background: radial-gradient(circle, currentColor 1.4px, transparent 1.8px) 0 50% / 9px 6px repeat-x;
+}
+
+/* Momento de entrada do hero: o nome "passa" como um decalque */
+@keyframes revela {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes surge {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.revela { animation: revela 1.1s cubic-bezier(0.7, 0, 0.2, 1) both; }
+.surge { animation: surge 0.9s ease-out 0.7s both; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .revela, .surge { animation: none; }
 }

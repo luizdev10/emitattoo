@@ -6,7 +6,7 @@ function BotaoTopo() {
 
     useEffect(() => {
         const onScroll = () => setVisivel(window.scrollY > 400);
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
@@ -14,7 +14,8 @@ function BotaoTopo() {
         <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             aria-label="Voltar ao topo"
-            className={`fixed bottom-6 right-6 z-50 rounded-full border border-amber-100/40 bg-neutral-900/80 p-3 text-amber-100 backdrop-blur transition-all duration-300 hover:bg-amber-100 hover:text-neutral-900 ${
+            tabIndex={visivel ? 0 : -1}
+            className={`fixed bottom-5 right-5 z-40 rounded-full border border-white/20 bg-tinta/85 p-3 text-papel backdrop-blur transition-all duration-300 hover:border-stencil-claro hover:text-stencil-claro ${
                 visivel ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-4"
             }`}
         >

@@ -12,7 +12,7 @@ function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [ativo, setAtivo] = useState("inicio");
 
-    // Marca no menu a seção que está no meio da tela
+    
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entradas) => entradas.forEach((e) => e.isIntersecting && setAtivo(e.target.id)),
@@ -42,7 +42,7 @@ function NavBar() {
         >
             {item.label}
             {ativo === item.id && (
-                <span className="linha-stencil absolute inset-x-0 -bottom-2 text-stencil-claro" />
+                <span className="border-b absolute inset-x-0 -bottom-2 text-stencil-claro" />
             )}
         </a>
     );

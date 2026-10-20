@@ -1,10 +1,12 @@
 import fotoSobre from "../assets/img/fotosobre.webp";
+import Reveal from "./reveal.jsx";
 
+/* PLACEHOLDER: texto genérico — substituir pela história real do Walney assim que for enviada */
 const history = [
-    { id: 1, Etapa: "1", Title: "O começo", Text: "Fiz minha primeira tatuagem aos 18 anos por curiosidade. O verdadeiro fascínio e a paixão pela arte vieram um pouco mais tarde." },
-    { id: 2, Etapa: "2", Title: "A descoberta", Text: "Entendi cedo que o caminho tradicional não era para mim. Trabalhei em diversas áreas, onde aprendi a escutar pessoas e enxergar novas possibilidades." },
-    { id: 3, Etapa: "3", Title: "O primeiro kit", Text: "Com um kit básico nas mãos, transformei meu quarto em estúdio e comecei a praticar em EVA, cascas de bananas, laranjas e peles sintéticas caseiras." },
-    { id: 4, Etapa: "4", Title: "A profissão", Text: "Os primeiros traços em pele humana foram desafiadores, mas a persistência venceu. Não desisti, apurei a técnica e fiz da arte minha profissão." },
+    { id: 1, Etapa: "1", Title: "O início", Text: "O contato com a tatuagem despertou um interesse que, aos poucos, se tornou paixão." },
+    { id: 2, Etapa: "2", Title: "O aprendizado", Text: "Estudo, prática e dedicação foram moldando a técnica a cada novo trabalho." },
+    { id: 3, Etapa: "3", Title: "A evolução", Text: "Cada tatuagem trouxe novos aprendizados e aprimorou o olhar para os detalhes." },
+    { id: 4, Etapa: "4", Title: "A profissão", Text: "A soma dessa trajetória resultou no trabalho feito hoje, com cuidado e comprometimento." },
 ];
 
 
@@ -13,7 +15,9 @@ function Sobre() {
         <section id="sobre" className="scroll-mt-16 w-full bg-papel px-4 py-20 text-tinta sm:px-6 md:py-28">
             <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-[5fr_7fr] md:gap-20">
                 <div className="md:sticky md:top-24 md:self-start">
-                    <h2 className="font-gotica text-6xl lowercase leading-none md:text-8xl">sobre o pedro</h2>
+                    <Reveal>
+                        <h2 className="font-gotica text-6xl lowercase leading-none md:text-8xl">sobre o walney</h2>
+                    </Reveal>
 
                     <figure className="relative mt-10 max-w-xs">
                         <div
@@ -22,7 +26,7 @@ function Sobre() {
                         />
                         <img
                             src={fotoSobre}
-                            alt="Pedro Menezes segurando um troféu em uma convenção de tatuagem, ao lado de uma cliente tatuada"
+                            alt="Walney, tatuador responsável pelo estúdio Walney TattooInk"
                             className="relative aspect-[3/4] w-full rounded-sm object-cover"
                         />
                     </figure>
@@ -36,7 +40,7 @@ function Sobre() {
 
                 <div className="md:pt-4">
                     <p className="max-w-lg text-lg leading-relaxed text-tinta/75">
-                        Do quarto que virou estúdio às convenções de tatuagem: o caminho até aqui, em quatro passos.
+                        Uma trajetória marcada por dedicação, prática constante e a busca por aperfeiçoar a técnica a cada tatuagem.
                     </p>
 
                     <ol className="mt-12 border-l-2 border-dotted border-stencil">

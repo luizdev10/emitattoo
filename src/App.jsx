@@ -6,6 +6,7 @@ import Sobre from "./components/sobre.jsx"
 import Contato from "./components/contato.jsx";
 import Politicas from "./components/politicas.jsx";
 import ButtonTop from "./components/button-top.jsx"
+import WhatsappFloat from "./components/whatsapp-float.jsx"
 
 
 function Principal() {
@@ -19,6 +20,7 @@ function Principal() {
         < Sobre/>
         < Contato/>
         < ButtonTop/>
+        < WhatsappFloat/>
         </>
     );
 }

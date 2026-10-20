@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
+import Reveal from "./reveal.jsx";
 
 import foto1 from "../assets/img/foto1.webp";
 import foto2 from "../assets/img/foto2.webp";
@@ -24,13 +25,10 @@ const photosWork = [
   { id: 8, url: foto8, tag: "Black and grey", alt: "Tatuagem black and grey de múmias", desc: "Tatuagem em black and grey com composição de múmias, explorando textura, contraste e profundidade para criar uma peça sombria, expressiva e cheia de impacto visual." },
 ];
 
-const estilos = ["Todos", ...new Set(photosWork.map((p) => p.tag))];
-
 function Trabalhos() {
-  const [estilo, setEstilo] = useState("Todos");
   const [openIndex, setOpenIndex] = useState(null);
 
-  const lista = estilo === "Todos" ? photosWork : photosWork.filter((p) => p.tag === estilo);
+  const lista = photosWork;
   const total = lista.length;
   const isOpen = openIndex !== null;
 
@@ -60,34 +58,14 @@ function Trabalhos() {
   const current = isOpen ? lista[openIndex] : null;
 
   return (
-    <section id="trabalhos" className="scroll-mt-16 w-full bg-grafite px-4 py-20 sm:px-6 md:py-28">
+    <section id="trabalhos" className="textura-grao scroll-mt-16 w-full bg-grafite px-4 py-20 sm:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="font-gotica text-6xl lowercase leading-none text-papel md:text-8xl">trabalhos</h2>
-            <p className="mt-4 max-w-md text-cinza">
-              Uma seleção de peças recentes. Toque numa foto para ver em tamanho maior.
-            </p>
-          </div>
-
-          <div role="group" aria-label="Filtrar por estilo" className="flex flex-wrap gap-2">
-            {estilos.map((e) => (
-              <button
-                key={e}
-                type="button"
-                aria-pressed={estilo === e}
-                onClick={() => setEstilo(e)}
-                className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
-                  estilo === e
-                    ? "border-stencil-claro bg-stencil-claro text-tinta"
-                    : "border-white/15 text-cinza hover:border-white/40 hover:text-papel"
-                }`}
-              >
-                {e}
-              </button>
-            ))}
-          </div>
-        </div>
+        <Reveal>
+          <h2 className="font-gotica text-6xl lowercase leading-none text-papel md:text-8xl">trabalhos</h2>
+          <p className="mt-4 max-w-md text-cinza">
+            Uma seleção de peças recentes. Toque numa foto para ver em tamanho maior.
+          </p>
+        </Reveal>
 
         <div className="mt-12 columns-2 gap-3 sm:gap-5 lg:columns-3">
           {lista.map((item, index) => (
@@ -96,7 +74,7 @@ function Trabalhos() {
                 type="button"
                 onClick={() => setOpenIndex(index)}
                 aria-label={`Ampliar: ${item.alt}`}
-                className="block w-full cursor-zoom-in overflow-hidden rounded-sm"
+                className="group relative block w-full cursor-zoom-in overflow-hidden rounded-sm"
               >
                 <img
                   src={item.url}
@@ -104,16 +82,21 @@ function Trabalhos() {
                   loading="lazy"
                   decoding="async"
                   draggable="false"
-                  className="w-full transition-opacity duration-300 hover:opacity-85"
+                  className="w-full transition-transform duration-300 ease-out group-hover:scale-[1.04]"
                 />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-tinta/0 opacity-0 transition-all duration-300 group-hover:bg-tinta/30 group-hover:opacity-100"
+                >
+                  <ZoomIn className="h-8 w-8 text-papel" strokeWidth={1.5} />
+                </span>
               </button>
-              <figcaption className="mt-2 text-sm text-cinza">{item.tag}</figcaption>
             </figure>
           ))}
         </div>
 
         <a
-          href="https://www.instagram.com/pedromenezes_3/"
+          href="https://www.instagram.com/walneytattooink/"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 inline-flex items-center gap-3 rounded-sm border border-white/20 px-5 py-3 text-papel transition-colors hover:border-papel"

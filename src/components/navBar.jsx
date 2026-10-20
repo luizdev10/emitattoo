@@ -11,8 +11,15 @@ const itens = [
 function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [ativo, setAtivo] = useState("inicio");
+    const [rolado, setRolado] = useState(false);
 
-    
+    useEffect(() => {
+        const onScroll = () => setRolado(window.scrollY > 8);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entradas) => entradas.forEach((e) => e.isIntersecting && setAtivo(e.target.id)),
@@ -48,14 +55,21 @@ function NavBar() {
     );
 
     return (
-        <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-tinta">
+        <nav
+            className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+                rolado ? "border-white/15 bg-tinta/90 backdrop-blur-md" : "border-white/10 bg-tinta"
+            }`}
+        >
             <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-                <a href="#inicio" onClick={(e) => clique(e, "inicio")} className="block h-12 w-[72px] overflow-hidden" aria-label="Pedro Menezes Tattoo, voltar ao início">
-                    <img
-                        src={`${import.meta.env.BASE_URL}logo.jpeg`}
-                        alt=""
-                        className="h-full w-full scale-150 object-cover"
-                    />
+                <a
+                    href="#inicio"
+                    onClick={(e) => clique(e, "inicio")}
+                    aria-label="Walney TattooInk, voltar ao início"
+                    className="flex h-12 flex-col justify-center font-gotica text-xl leading-[0.95] lowercase text-papel"
+                >
+                    walney
+                    <br />
+                    tattooink
                 </a>
 
                 <ul className="hidden items-center gap-9 font-texto text-[15px] font-medium md:flex">

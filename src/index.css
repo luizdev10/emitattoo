@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
-/* Tinta preta do black and grey + roxo do stencil (papel de decalque) */
+/* Paleta monocromática: tinta, grafite e cinzas do black and grey — sem cor de acento */
 @theme {
   --color-tinta: #000000;
-  --color-grafite: #161514;
-  --color-cinza: #8c8883;
-  --color-papel: #eceaf2;
-  --color-stencil: #4a3d9e;
-  --color-stencil-claro: #a99cf2;
+  --color-grafite: #1c1512;
+  --color-cinza: #9c9388;
+  --color-papel: #efe8da;
+  --color-stencil: #4a4541;
+  --color-stencil-claro: #b8b0a0;
 
   --font-gotica: "Pirata One", serif;
   --font-texto: "Archivo", system-ui, sans-serif;
@@ -47,6 +47,32 @@ body {
 .linha-stencil {
   height: 6px;
   background: radial-gradient(circle, currentColor 1.4px, transparent 1.8px) 0 50% / 9px 6px repeat-x;
+}
+
+/* Variante vertical, usada como divisor entre números (ex.: faixa de credenciais) */
+.linha-stencil-v {
+  width: 6px;
+  background: radial-gradient(circle, currentColor 1.4px, transparent 1.8px) 50% 0 / 6px 9px repeat-y;
+}
+
+/* Grão sutil nas seções escuras — textura de tinta/filme, não decoração gratuita */
+.textura-grao {
+  position: relative;
+  isolation: isolate;
+}
+.textura-grao::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.textura-grao > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Momento de entrada do hero: o nome "passa" como um decalque */

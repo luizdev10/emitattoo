@@ -1,9 +1,15 @@
 import { useState } from "react";
-import { MapPin, MessageCircle } from "lucide-react";
+import { Clock, MapPin, MessageCircle } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import { Link } from "react-router-dom";
+import Reveal from "./reveal.jsx";
 
-const NUMERO_WHATS = "5588988151026";
+const NUMERO_WHATS = "558897234574";
+const horarios = [
+  { dias: "Segunda a sexta", horas: "10:00–20:00" },
+  { dias: "Sábado", horas: "Fechado" },
+  { dias: "Domingo", horas: "09:00–19:00" },
+];
 const campo =
   "w-full border-b border-white/25 bg-transparent py-2.5 text-papel outline-none transition-colors placeholder:text-cinza/70 focus:border-stencil-claro autofill:shadow-[inset_0_0_0_1000px_#000] [&:-webkit-autofill]:[-webkit-text-fill-color:#eceaf2] [color-scheme:dark]";
 const rotulo = "text-sm text-cinza";
@@ -50,7 +56,7 @@ export default function Contato() {
       .filter(Boolean)
       .join(" ");
     const texto =
-      `Olá Pedro! Me chamo ${form.nome}.\n` +
+      `Olá Walney! Me chamo ${form.nome}.\n` +
       `Estou com uma ideia de fazer um(a) ${form.ideia}${onde ? `, ${onde}` : ""}.\n` +
       `Tenho disponibilidade ${quando || "a combinar"}.` +
       (estimativa ? `\nEstimativa do site: R$ ${estimativa.toLocaleString("pt-BR")}` : "");
@@ -58,38 +64,50 @@ export default function Contato() {
   };
 
   return (
-    <section id="contato" className="scroll-mt-16 w-full bg-tinta px-4 pt-20 sm:px-6 md:pt-28">
+    <section id="contato" className="textura-grao scroll-mt-16 w-full bg-tinta px-4 pt-20 sm:px-6 md:pt-28">
       <div className="mx-auto grid max-w-6xl gap-14 md:grid-cols-[5fr_6fr] md:gap-20">
         <div>
-          <h2 className="font-gotica text-6xl lowercase leading-[0.9] text-papel md:text-8xl">
-            vamos criar
-            <br />
-            sua história
-          </h2>
+          <Reveal>
+            <h2 className="font-gotica text-6xl lowercase leading-[0.9] text-papel md:text-8xl">
+              vamos criar
+              <br />
+              sua arte
+            </h2>
+          </Reveal>
           <p className="mt-6 max-w-sm leading-relaxed text-cinza">
-            Preencha o formulário e a mensagem chega pronta no WhatsApp do Pedro.
+            Preencha o formulário e a mensagem chega pronta no WhatsApp do Walney.
             O orçamento final é combinado na conversa.
           </p>
 
           <div className="mt-10 flex flex-col gap-5 text-papel/85">
             <a
-              href="https://www.instagram.com/pedromenezes_3/"
+              href="https://www.instagram.com/walneytattooink/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-fit items-center gap-3 transition-colors hover:text-papel"
             >
               <SiInstagram className="h-5 w-5 shrink-0 opacity-70" />
-              @pedromenezes_3
+              @walneytattooink
             </a>
             <a
-              href="https://www.google.com/maps/@-7.2291944,-39.3032022,3a,75y,149.62h,78.04t/data=!3m7!1e1!3m5!1sLrtD5QBlqkwoPB99mrnvPw!2e0!6shttps:%2F%2Fstreetviewpixels-pa.googleapis.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D11.960293368812316%26panoid%3DLrtD5QBlqkwoPB99mrnvPw%26yaw%3D149.6185047435401!7i16384!8i8192?entry=ttu&g_ep=EgoyMDI2MDgyNi4wIKXMDSoASAFQAw%3D%3D"
+              href="https://www.google.com/maps/place/Walney+TattooInk/@-7.2059686,-39.3155155,398a,75y,56.94h,82.05t/data=!3m7!1e1!3m5!1s7fuyXzBP30znr5q3gEwMcQ!2e0!6shttps:%2F%2Fstreetviewpixels-pa.clients6.google.com%2Fv1%2Fthumbnail%3Fcb_client%3Dmaps_sv.tactile%26w%3D900%26h%3D600%26pitch%3D7.951210319976454%26panoid%3D7fuyXzBP30znr5q3gEwMcQ%26yaw%3D56.9412604847905!7i16384!8i8192!4m6!3m5!1s0x7a17f551a1853a9:0x5950134a323fe17a!8m2!3d-7.2058763!4d-39.315455!16s%2Fg%2F11dynmn1jj"
               target="_blank"
               rel="noopener noreferrer"
               className="flex max-w-xs items-start gap-3 leading-relaxed transition-colors hover:text-papel"
             >
               <MapPin className="mt-1 h-5 w-5 shrink-0 opacity-70" strokeWidth={1.5} />
-              Rua Coronel Filemon Teles, 30, bairro José Geraldo da Cruz
+              R. Dr. Diniz, 707 - Centro, Juazeiro do Norte - CE, 63010-105
             </a>
+            <div className="flex items-start gap-3">
+              <Clock className="mt-1 h-5 w-5 shrink-0 opacity-70" strokeWidth={1.5} />
+              <ul className="leading-relaxed">
+                {horarios.map((h) => (
+                  <li key={h.dias}>
+                    {h.dias}: {h.horas}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
@@ -159,7 +177,7 @@ export default function Contato() {
 
           <button
             type="submit"
-            className="mt-2 flex items-center justify-center gap-2.5 rounded-sm bg-papel py-4 font-medium text-tinta transition-colors hover:bg-gray-500 hover:text-papel transition-all ease-in-out duration-600"
+            className="mt-2 flex items-center justify-center gap-2.5 rounded-sm bg-papel py-4 font-medium text-tinta transition-all duration-500 ease-in-out hover:bg-stencil-claro hover:text-tinta"
           >
             <MessageCircle className="h-5 w-5" strokeWidth={1.5} />
             Enviar pelo WhatsApp
@@ -171,7 +189,7 @@ export default function Contato() {
       </div>
 
       <footer className="mx-auto mt-24 flex max-w-6xl flex-col gap-3 border-t border-white/10 py-8 text-sm text-cinza sm:flex-row sm:justify-between">
-        <p>Pedro Menezes Tattoo</p>
+        <p>Walney TattooInk</p>
         <Link to="/politicas-de-privacidade" className="w-fit transition-colors hover:text-papel">
           Política de privacidade
         </Link>

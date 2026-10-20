@@ -60,7 +60,7 @@ function NavBar() {
                 rolado ? "border-white/15 bg-tinta/90 backdrop-blur-md" : "border-white/10 bg-tinta"
             }`}
         >
-            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+            <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 sm:px-8">
                 <a
                     href="#inicio"
                     onClick={(e) => clique(e, "inicio")}
@@ -89,7 +89,7 @@ function NavBar() {
             </div>
 
             {menuOpen && (
-                <ul className="flex flex-col gap-1 border-t border-white/10 px-4 pb-6 pt-3 font-texto text-lg md:hidden">
+                <ul className="flex flex-col gap-1 border-t border-white/10 px-6 pb-6 pt-3 sm:px-8 font-texto text-lg md:hidden">
                     {itens.map((item) => (
                         <li key={item.id}>{link(item, "w-fit py-2")}</li>
                     ))}

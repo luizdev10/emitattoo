@@ -5,10 +5,17 @@ import { Link } from "react-router-dom";
 import Reveal from "./reveal.jsx";
 
 const NUMERO_WHATS = "558897234574";
+const LINK_WHATS_GERAL = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent("Olá Walney! Quero fazer uma tatuagem")}`;
 const horarios = [
   { dias: "Segunda a sexta", horas: "10:00–20:00" },
   { dias: "Sábado", horas: "Fechado" },
   { dias: "Domingo", horas: "09:00–19:00" },
+];
+const paginas = [
+  { href: "#inicio", label: "Início" },
+  { href: "#trabalhos", label: "Trabalhos" },
+  { href: "#sobre", label: "Sobre" },
+  { href: "#contato", label: "Contato" },
 ];
 const campo =
   "w-full border-b border-white/25 bg-transparent py-2.5 text-papel outline-none transition-colors placeholder:text-cinza/70 focus:border-stencil-claro autofill:shadow-[inset_0_0_0_1000px_#000] [&:-webkit-autofill]:[-webkit-text-fill-color:#eceaf2] [color-scheme:dark]";
@@ -188,11 +195,70 @@ export default function Contato() {
         </form>
       </div>
 
-      <footer className="mx-auto mt-24 flex max-w-6xl flex-col gap-3 border-t border-white/10 py-8 text-sm text-cinza sm:flex-row sm:justify-between">
-        <p>Walney TattooInk</p>
-        <Link to="/politicas-de-privacidade" className="w-fit transition-colors hover:text-papel">
-          Política de privacidade
-        </Link>
+      <footer className="mx-auto mt-24 max-w-6xl border-t border-white/10 py-14 text-sm text-cinza">
+        <div className="grid gap-12 sm:grid-cols-2">
+          <div>
+            <p className="font-gotica text-2xl lowercase text-papel">walney tattooink</p>
+
+            <div className="mt-6 flex items-start gap-3">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 opacity-70" strokeWidth={1.5} />
+              <p className="leading-relaxed">R. Dr. Diniz, 707 - Centro, Juazeiro do Norte - CE, 63010-105</p>
+            </div>
+
+            <div className="mt-3 flex items-start gap-3">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0 opacity-70" strokeWidth={1.5} />
+              <ul className="leading-relaxed">
+                {horarios.map((h) => (
+                  <li key={h.dias}>
+                    {h.dias}: {h.horas}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <a
+              href={LINK_WHATS_GERAL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 flex items-center gap-3 transition-colors hover:text-papel"
+            >
+              <MessageCircle className="h-4 w-4 shrink-0 opacity-70" strokeWidth={1.5} />
+              (88) 9723-4574
+            </a>
+
+            <a
+              href="https://www.instagram.com/walneytattooink/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram do Walney TattooInk"
+              className="mt-6 flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors hover:border-papel hover:text-papel"
+            >
+              <SiInstagram className="h-4 w-4" />
+            </a>
+          </div>
+
+          <div>
+            <p className="text-papel">Páginas</p>
+            <ul className="mt-6 flex flex-col gap-3">
+              {paginas.map((p) => (
+                <li key={p.href}>
+                  <a href={p.href} className="transition-colors hover:text-papel">
+                    {p.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <Link to="/politicas-de-privacidade" className="transition-colors hover:text-papel">
+                  Política de privacidade
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="mt-12 border-t border-white/10 pt-6 text-xs text-cinza/70">
+          © {new Date().getFullYear()} Walney TattooInk
+        </p>
       </footer>
     </section>
   );

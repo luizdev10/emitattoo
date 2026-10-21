@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, X, ZoomIn } from "lucide-react";
+import { createPortal } from "react-dom";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Reveal from "./reveal.jsx";
 
@@ -58,6 +59,7 @@ function Trabalhos() {
   const current = isOpen ? lista[openIndex] : null;
 
   return (
+    <>
     <section id="trabalhos" className="textura-grao scroll-mt-16 w-full bg-grafite px-4 py-20 sm:px-6 md:py-28">
       <div className="mx-auto max-w-6xl">
         <Reveal>
@@ -67,32 +69,39 @@ function Trabalhos() {
           </p>
         </Reveal>
 
-        <div className="mt-12 columns-2 gap-3 sm:gap-5 lg:columns-3">
-          {lista.map((item, index) => (
-            <figure key={item.id} className="mb-3 break-inside-avoid sm:mb-5">
-              <button
-                type="button"
-                onClick={() => setOpenIndex(index)}
-                aria-label={`Ampliar: ${item.alt}`}
-                className="group relative block w-full cursor-zoom-in overflow-hidden rounded-sm"
+        <div className="mt-12 grid grid-cols-2 [grid-auto-flow:dense] auto-rows-[160px] gap-[10px] md:grid-cols-4 md:auto-rows-[200px]">
+          {lista.map((item, index) => {
+            const destaque = index === 0;
+            const largo = index === 3;
+            return (
+              <figure
+                key={item.id}
+                className={`m-0 ${destaque ? "col-span-2 row-span-2" : largo ? "col-span-2" : ""}`}
               >
-                <img
-                  src={item.url}
-                  alt={item.alt}
-                  loading="lazy"
-                  decoding="async"
-                  draggable="false"
-                  className="w-full transition-transform duration-300 ease-out group-hover:scale-[1.04]"
-                />
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 flex items-center justify-center bg-tinta/0 opacity-0 transition-all duration-300 group-hover:bg-tinta/30 group-hover:opacity-100"
+                <button
+                  type="button"
+                  onClick={() => setOpenIndex(index)}
+                  aria-label={`Ampliar: ${item.alt}`}
+                  className="group relative block h-full w-full cursor-zoom-in overflow-hidden rounded-sm"
                 >
-                  <ZoomIn className="h-8 w-8 text-papel" strokeWidth={1.5} />
-                </span>
-              </button>
-            </figure>
-          ))}
+                  <img
+                    src={item.url}
+                    alt={item.alt}
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                    className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.04]"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-tinta/85 to-transparent px-3 py-2.5 text-xs text-papel opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100 group-active:opacity-100"
+                  >
+                    {item.tag}
+                  </span>
+                </button>
+              </figure>
+            );
+          })}
         </div>
 
         <a
@@ -105,8 +114,9 @@ function Trabalhos() {
           Ver mais no Instagram
         </a>
       </div>
+    </section>
 
-      {current && (
+    {current && createPortal(
         <div
           role="dialog"
           aria-modal="true"
@@ -161,9 +171,10 @@ function Trabalhos() {
               <ChevronRight className="h-9 w-9" strokeWidth={1.5} />
             </button>
           )}
-        </div>
+        </div>,
+        document.body
       )}
-    </section>
+    </>
   );
 }
 

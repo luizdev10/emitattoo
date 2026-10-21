@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, MessageCircle, X } from "lucide-react";
 
 const itens = [
     { id: "inicio", label: "Início" },
@@ -7,6 +7,9 @@ const itens = [
     { id: "sobre", label: "Sobre" },
     { id: "contato", label: "Contato" },
 ];
+
+const NUMERO_WHATS = "558897234574";
+const LINK_WHATS = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent("Olá Walney! Quero fazer uma tatuagem")}`;
 
 function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -72,11 +75,22 @@ function NavBar() {
                     tattooink
                 </a>
 
-                <ul className="hidden items-center gap-9 font-texto text-[15px] font-medium md:flex">
-                    {itens.map((item) => (
-                        <li key={item.id}>{link(item)}</li>
-                    ))}
-                </ul>
+                <div className="hidden items-center gap-9 md:flex">
+                    <ul className="flex items-center gap-9 font-texto text-[15px] font-medium">
+                        {itens.map((item) => (
+                            <li key={item.id}>{link(item)}</li>
+                        ))}
+                    </ul>
+                    <a
+                        href={LINK_WHATS}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 rounded-full bg-papel px-5 py-2 text-sm font-medium text-tinta transition-colors hover:bg-stencil-claro"
+                    >
+                        <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+                        Pedir orçamento
+                    </a>
+                </div>
 
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
@@ -93,6 +107,17 @@ function NavBar() {
                     {itens.map((item) => (
                         <li key={item.id}>{link(item, "w-fit py-2")}</li>
                     ))}
+                    <li className="pt-3">
+                        <a
+                            href={LINK_WHATS}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex w-fit items-center gap-2 rounded-full bg-papel px-5 py-2.5 text-base font-medium text-tinta transition-colors hover:bg-stencil-claro"
+                        >
+                            <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
+                            Pedir orçamento
+                        </a>
+                    </li>
                 </ul>
             )}
         </nav>

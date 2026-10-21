@@ -17,7 +17,7 @@ function Inicio() {
             <img
                 src={fotoHero}
                 alt="Tatuadora da EmiTattoo em seu estúdio"
-                className="absolute inset-0 h-full w-full object-cover object-top"
+                className="absolute inset-0 h-full w-full object-cover object-[center_22%]"
             />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-tinta via-tinta/65 to-tinta/20" />
             <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-tinta via-transparent to-tinta/50" />

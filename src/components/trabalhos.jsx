@@ -15,15 +15,15 @@ import foto8 from "../assets/img/foto8.webp";
 import foto9 from "../assets/img/foto9.webp";
 
 const photosWork = [
-  { id: 3, url: foto3, tag: "Black and grey", alt: "Tatuagem black and grey de samurai", desc: "Tatuagem em black and grey com temática samurai, unindo força e tradição em uma composição imponente, com profundidade de sombras e detalhes que destacam armadura, postura e presença." },
-  { id: 1, url: foto1, tag: "Realismo", alt: "Tatuagem realista de escultura clássica", desc: "Tatuagem realista, escultura clássica, com contraste marcante e riqueza de detalhes." },
-  { id: 6, url: foto6, tag: "Realismo", alt: "Tatuagem realista do Chester Bennington em black and grey", desc: "Tatuagem realista em black and grey do Chester Bennington, capturando emoção e intensidade em cada detalhe, com contraste forte e acabamento que homenageia sua presença e legado." },
-  { id: 2, url: foto2, tag: "Colorida", alt: "Tatuagem colorida do Homem-Aranha", desc: "Tatuagem colorida do Homem-Aranha com traço vibrante, alto contraste e acabamento em estilo comic." },
-  { id: 5, url: foto5, tag: "Black and grey", alt: "Tatuagem black and grey de caveira samurai", desc: "Tatuagem em black and grey com caveira samurai, combinando simbolismo e impacto visual em uma composição marcante, com sombras profundas e detalhes que reforçam atitude, força e personalidade." },
-  { id: 4, url: foto4, tag: "Realismo", alt: "Tatuagem realista do Homem de Ferro em black and grey", desc: "Tatuagem realista do Homem de Ferro em black and grey, com contraste forte e sombreamento preciso." },
-  { id: 7, url: foto7, tag: "Anime", alt: "Tatuagem do Vegeta em black and grey", desc: "Tatuagem do Vegeta em black and grey com traço de anime, expressão marcante e sombreamento equilibrado, trazendo atitude e fidelidade ao personagem em uma peça cheia de personalidade." },
-  { id: 9, url: foto9, tag: "Fineline", alt: "Tatuagem de mariposa em black and grey", desc: "Tatuagem de mariposa em black and grey com traço delicado e simbologia mística, unindo equilíbrio, contraste suave e detalhes finos para uma peça elegante e cheia de significado." },
-  { id: 8, url: foto8, tag: "Black and grey", alt: "Tatuagem black and grey de múmias", desc: "Tatuagem em black and grey com composição de múmias, explorando textura, contraste e profundidade para criar uma peça sombria, expressiva e cheia de impacto visual." },
+  { id: 1, url: foto1, tag: "Black and grey", alt: "Tatuagem de caveira com arame farpado na coxa", desc: "Caveira em black and grey envolta por arame farpado, com um punhal e ornamentos na base — contraste forte entre luz e sombra." },
+  { id: 2, url: foto2, tag: "Lettering", alt: "Tatuagem de lettering no antebraço e na mão", desc: "Lettering em caligrafia gótica preenchendo o antebraço até a mão, com sombreamento em black and grey e efeito de fita entre as palavras." },
+  { id: 3, url: foto3, tag: "Neo-tradicional", alt: "Tatuagem neotradicional de Alice no País das Maravilhas no ombro", desc: "Composição neotradicional reunindo o gato Cheshire, o Coelho Branco e um cogumelo, em black and grey com traço bem definido." },
+  { id: 4, url: foto4, tag: "Abstrato", alt: "Tatuagem abstrata em black and grey na perna", desc: "Pinceladas fluidas em preto formam um desenho abstrato, quase um olho em espiral, acompanhando a curva da perna." },
+  { id: 5, url: foto5, tag: "Realismo", alt: "Tatuagem realista de lobo com relógio quebrado no braço", desc: "Cabeça de lobo em realismo black and grey, com um relógio de bolso quebrado ao fundo e uma paisagem de floresta e lua na base." },
+  { id: 6, url: foto6, tag: "Dotwork", alt: "Tatuagem de Medusa com cobras na coxa", desc: "Retrato de Medusa com serpentes entrelaçadas no cabelo, em traço neotradicional com sombreamento pontilhado." },
+  { id: 7, url: foto7, tag: "Colorida", alt: "Tatuagens de cérebro e coração com cobras na coluna", desc: "Duas peças na coluna: um cérebro envolto por uma cobra em black and grey, e um coração com uma cobra vermelha — contraste entre tons neutros e cor viva." },
+  { id: 8, url: foto8, tag: "Geométrica", alt: "Tatuagem geométrica pontilhada na coxa", desc: "Mandala geométrica em dotwork, com cubos em efeito 3D e padrão de flor da vida, mesclando precisão técnica e simetria." },
+  { id: 9, url: foto9, tag: "Realismo", alt: "Tatuagem realista de tigre com rosto feminino no antebraço", desc: "Composição realista em dupla exposição unindo a face de uma tigre e o rosto de uma mulher, em black and grey no antebraço." },
 ];
 
 function Trabalhos() {

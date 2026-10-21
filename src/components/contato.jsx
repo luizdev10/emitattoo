@@ -2,7 +2,7 @@ import { Clock, MapPin, MessageCircle } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import { Link } from "react-router-dom";
 import Reveal from "./reveal.jsx";
-import fotoContato from "../assets/img/trabalho9.webp";
+import fotoContato from "../assets/img/bg-works-emi.webp";
 
 const NUMERO_WHATS = "5588997082957";
 const LINK_WHATS_GERAL = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent("Olá! Quero fazer uma tatuagem")}`;
@@ -82,15 +82,15 @@ export default function Contato() {
           </p>
         </div>
 
-        <figure className="relative mx-auto w-full max-w-sm md:max-w-none">
+        <figure className="relative mx-auto hidden w-full md:block md:max-w-none">
           <div
             aria-hidden="true"
             className="absolute inset-0 translate-x-3 translate-y-3 rounded-sm border-1 border-solid border-stencil"
           />
           <img
             src={fotoContato}
-            alt="Tatuagem fineline de bússola vikinga com asas, exemplo de trabalho da EmiTattoo"
-            className="relative aspect-[3/4] w-full rounded-sm object-cover"
+            alt="Tatuadora da EmiTattoo em seu estúdio"
+            className="relative aspect-[3/4] w-full rounded-sm object-cover object-[center_22%]"
           />
         </figure>
       </div>

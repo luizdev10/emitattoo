@@ -1,11 +1,10 @@
-/* PLACEHOLDER: números fictícios — substituir pelos dados reais do Walney TattooInk assim que forem enviados */
-import { CalendarDays, PenTool, Trophy } from "lucide-react";
+import { CalendarDays, PenTool, Users } from "lucide-react";
 import Reveal from "./reveal.jsx";
 
 const itens = [
-    { icone: CalendarDays, numero: "8 anos", legenda: "tatuando em black and grey" },
-    { icone: PenTool, numero: "+300", legenda: "tatuagens realizadas" },
-    { icone: Trophy, numero: "1º lugar", legenda: "Convenção Onyx Tattoo Camp" },
+    { icone: CalendarDays, numero: "Desde 2019", legenda: "tatuando em Crato - CE" },
+    { icone: PenTool, numero: "+300", legenda: "tatuagens e piercings realizados" },
+    { icone: Users, numero: "3.593", legenda: "seguidores no Instagram" },
 ];
 
 function Credenciais() {

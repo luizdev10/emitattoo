@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
-/* Paleta monocromática: tinta, grafite e cinzas do black and grey — sem cor de acento */
+/* Paleta com acento único — magenta vindo da identidade da EmiTattoo, sobre uma base quase preta com um resíduo de ametista */
 @theme {
-  --color-tinta: #000000;
-  --color-grafite: #1c1512;
-  --color-cinza: #9c9388;
-  --color-papel: #efe8da;
-  --color-stencil: #4a4541;
-  --color-stencil-claro: #b8b0a0;
+  --color-tinta: #0b0710;
+  --color-grafite: #1a1016;
+  --color-cinza: #a699a3;
+  --color-papel: #f7eef3;
+  --color-stencil: #4a3b45;
+  --color-stencil-claro: #c9a9bd;
+  --color-acento: #e8157a;
+  --color-acento-luz: #ff78c8;
 
   --font-gotica: "Pirata One", serif;
   --font-texto: "Archivo", system-ui, sans-serif;
+  --font-display: "Unbounded", system-ui, sans-serif;
+  --font-assinatura: "Mrs Saint Delafield", cursive;
 }
 
 * {

@@ -4,26 +4,28 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { SiInstagram } from "@icons-pack/react-simple-icons";
 import Reveal from "./reveal.jsx";
 
-import foto1 from "../assets/img/foto1.webp";
-import foto2 from "../assets/img/foto2.webp";
-import foto3 from "../assets/img/foto3.webp";
-import foto4 from "../assets/img/foto4.webp";
-import foto5 from "../assets/img/foto5.webp";
-import foto6 from "../assets/img/foto6.webp";
-import foto7 from "../assets/img/foto7.webp";
-import foto8 from "../assets/img/foto8.webp";
-import foto9 from "../assets/img/foto9.webp";
+import trabalho1 from "../assets/img/trabalho1.webp";
+import trabalho2 from "../assets/img/trabalho2.webp";
+import trabalho3 from "../assets/img/trabalho3.webp";
+import trabalho4 from "../assets/img/trabalho4.webp";
+import trabalho5 from "../assets/img/trabalho5.webp";
+import trabalho6 from "../assets/img/trabalho6.webp";
+import trabalho7 from "../assets/img/trabalho7.webp";
+import trabalho8 from "../assets/img/trabalho8.webp";
+import trabalho9 from "../assets/img/trabalho9.webp";
+import trabalho10 from "../assets/img/trabalho10.webp";
 
 const photosWork = [
-  { id: 1, url: foto1, tag: "Black and grey", alt: "Tatuagem de caveira com arame farpado na coxa", desc: "Caveira em black and grey envolta por arame farpado, com um punhal e ornamentos na base — contraste forte entre luz e sombra." },
-  { id: 2, url: foto2, tag: "Lettering", alt: "Tatuagem de lettering no antebraço e na mão", desc: "Lettering em caligrafia gótica preenchendo o antebraço até a mão, com sombreamento em black and grey e efeito de fita entre as palavras." },
-  { id: 3, url: foto3, tag: "Neo-tradicional", alt: "Tatuagem neotradicional de Alice no País das Maravilhas no ombro", desc: "Composição neotradicional reunindo o gato Cheshire, o Coelho Branco e um cogumelo, em black and grey com traço bem definido." },
-  { id: 4, url: foto4, tag: "Abstrato", alt: "Tatuagem abstrata em black and grey na perna", desc: "Pinceladas fluidas em preto formam um desenho abstrato, quase um olho em espiral, acompanhando a curva da perna." },
-  { id: 5, url: foto5, tag: "Realismo", alt: "Tatuagem realista de lobo com relógio quebrado no braço", desc: "Cabeça de lobo em realismo black and grey, com um relógio de bolso quebrado ao fundo e uma paisagem de floresta e lua na base." },
-  { id: 6, url: foto6, tag: "Dotwork", alt: "Tatuagem de Medusa com cobras na coxa", desc: "Retrato de Medusa com serpentes entrelaçadas no cabelo, em traço neotradicional com sombreamento pontilhado." },
-  { id: 7, url: foto7, tag: "Colorida", alt: "Tatuagens de cérebro e coração com cobras na coluna", desc: "Duas peças na coluna: um cérebro envolto por uma cobra em black and grey, e um coração com uma cobra vermelha — contraste entre tons neutros e cor viva." },
-  { id: 8, url: foto8, tag: "Geométrica", alt: "Tatuagem geométrica pontilhada na coxa", desc: "Mandala geométrica em dotwork, com cubos em efeito 3D e padrão de flor da vida, mesclando precisão técnica e simetria." },
-  { id: 9, url: foto9, tag: "Realismo", alt: "Tatuagem realista de tigre com rosto feminino no antebraço", desc: "Composição realista em dupla exposição unindo a face de uma tigre e o rosto de uma mulher, em black and grey no antebraço." },
+  { id: 1, url: trabalho1, tag: "Fineline", alt: "Tatuagem fineline com chapéu de palha e Goku no antebraço", desc: "Composição fineline misturando referências de anime, com sombreamento leve em pontilhismo no antebraço." },
+  { id: 2, url: trabalho2, tag: "Fineline", alt: "Tatuagem fineline de rainha egípcia com Olho de Hórus no antebraço", desc: "Rainha egípcia com tocado hieroglífico e o Olho de Hórus abaixo, em fineline com sombreamento suave no antebraço." },
+  { id: 3, url: trabalho3, tag: "Fineline", alt: "Tatuagem fineline de anjo com raios de luz nas costas", desc: "Anjo com asas abertas e raios irradiando, em fineline na parte superior das costas." },
+  { id: 4, url: trabalho4, tag: "Fineline", alt: "Tatuagem fineline de olhos com o nome Helena no bíceps", desc: "Retrato minimalista dos olhos com o nome em caligrafia, fineline delicado no bíceps." },
+  { id: 5, url: trabalho5, tag: "Pontilhismo", alt: "Tatuagem em pontilhismo inspirada em capa de álbum nas costelas", desc: "Silhueta em pontilhismo com sombreado suave, nas costelas." },
+  { id: 6, url: trabalho6, tag: "Mandala", alt: "Tatuagem de mandala floral com olho na panturrilha", desc: "Mandala floral com olho ao centro, traço fino e detalhado na panturrilha." },
+  { id: 7, url: trabalho7, tag: "Fineline", alt: "Tatuagem fineline de aranha sobre teia no tornozelo", desc: "Aranha sobre teia em traço fino e ilustrativo, no tornozelo." },
+  { id: 8, url: trabalho8, tag: "Fineline", alt: "Tatuagem fineline de águia com asas abertas no peito", desc: "Águia com asas abertas em traço fino, no peito." },
+  { id: 9, url: trabalho9, tag: "Fineline", alt: "Tatuagem fineline de bússola vikinga com asas no ombro", desc: "Bússola vikinga (Vegvísir) ladeada por asas, traço fino no ombro." },
+  { id: 10, url: trabalho10, tag: "Fineline", alt: "Tatuagem fineline de tridente com serpente no peito", desc: "Tridente entrelaçado por uma serpente, traço fino no peito." },
 ];
 
 function Trabalhos() {
@@ -105,7 +107,7 @@ function Trabalhos() {
         </div>
 
         <a
-          href="https://www.instagram.com/walneytattooink/"
+          href="https://www.instagram.com/_emitattoo/"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 inline-flex items-center gap-3 rounded-sm border border-white/20 px-5 py-3 text-papel transition-colors hover:border-papel"

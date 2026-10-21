@@ -30,14 +30,14 @@ export default function Politicas() {
           <section>
             <h2 className="text-xl text-papel font-semibold mb-3">1. Coleta de Informações</h2>
             <p>
-              Solicitamos informações pessoais (como nome, ideia da tatuagem, tamanho aproximado e local do corpo) apenas quando realmente precisamos delas para fornecer um atendimento personalizado e orçamento referente aos nossos serviços de tatuagem.
+              Este site não possui formulários próprios: ele leva você diretamente ao nosso WhatsApp oficial. As informações pessoais (como nome, ideia da tatuagem, tamanho aproximado e local do corpo) são as que você mesmo compartilha na conversa, apenas para fornecermos um atendimento personalizado e orçamento referente aos nossos serviços.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl text-papel font-semibold mb-3">2. Uso dos Dados</h2>
             <p>
-              Os dados inseridos nos formulários deste site não são armazenados em banco de dados externo ou vendidos a terceiros. Eles servem exclusivamente para gerar uma mensagem direta direcionada ao nosso atendimento via WhatsApp.
+              Nenhum dado é coletado ou armazenado pelo site. As informações trocadas na conversa servem exclusivamente para o nosso atendimento via WhatsApp e não são vendidas a terceiros.
             </p>
           </section>
 
@@ -56,7 +56,14 @@ export default function Politicas() {
           </section>
 
           <section>
-            <h2 className="text-xl text-papel font-semibold mb-3">5. Contato</h2>
+            <h2 className="text-xl text-papel font-semibold mb-3">5. Pagamentos e Reembolsos</h2>
+            <p>
+              Orçamentos e agendamentos são realizados exclusivamente pelo WhatsApp oficial informado no site. Não trabalhamos com reembolso de valores pagos por serviços já realizados.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl text-papel font-semibold mb-3">6. Contato</h2>
             <p>
               Se você tiver alguma dúvida sobre como lidamos com dados do usuário e informações pessoais, entre em contato conosco através do nosso WhatsApp oficial fornecido no site.
             </p>

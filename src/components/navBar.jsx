@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
+import { SiInstagram } from "@icons-pack/react-simple-icons";
+import logo from "../assets/img/logo-emi.webp";
 
 const itens = [
     { id: "inicio", label: "Início" },
     { id: "trabalhos", label: "Trabalhos" },
     { id: "sobre", label: "Sobre" },
+    { id: "orcamento", label: "Orçamento" },
     { id: "contato", label: "Contato" },
 ];
 
-const NUMERO_WHATS = "558897234574";
-const LINK_WHATS = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent("Olá Walney! Quero fazer uma tatuagem")}`;
+const NUMERO_WHATS = "5588997082957";
+const LINK_WHATS = `https://wa.me/${NUMERO_WHATS}?text=${encodeURIComponent("Olá! Quero fazer uma tatuagem")}`;
 
 function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -52,7 +55,7 @@ function NavBar() {
         >
             {item.label}
             {ativo === item.id && (
-                <span className="border-b absolute inset-x-0 -bottom-2 text-stencil-claro" />
+                <span className="border-b absolute inset-x-0 -bottom-2 text-acento-luz" />
             )}
         </a>
     );
@@ -67,25 +70,33 @@ function NavBar() {
                 <a
                     href="#inicio"
                     onClick={(e) => clique(e, "inicio")}
-                    aria-label="Walney TattooInk, voltar ao início"
-                    className="flex h-12 flex-col justify-center font-gotica text-xl leading-[0.95] lowercase text-papel"
+                    aria-label="EmiTattoo, voltar ao início"
+                    className="flex h-12 items-center gap-2.5"
                 >
-                    walney
-                    <br />
-                    tattooink
+                    <img src={logo} alt="" aria-hidden="true" className="h-10 w-10 rounded-full object-cover" />
+                    <span className="font-gotica text-xl leading-[0.95] lowercase text-papel">emitattoo</span>
                 </a>
 
-                <div className="hidden items-center gap-9 md:flex">
-                    <ul className="flex items-center gap-9 font-texto text-[15px] font-medium">
+                <div className="hidden items-center gap-7 lg:flex">
+                    <ul className="flex items-center gap-7 font-texto text-[15px] font-medium">
                         {itens.map((item) => (
                             <li key={item.id}>{link(item)}</li>
                         ))}
                     </ul>
                     <a
+                        href="https://www.instagram.com/_emitattoo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram da EmiTattoo"
+                        className="text-cinza transition-colors hover:text-acento-luz"
+                    >
+                        <SiInstagram className="h-5 w-5" />
+                    </a>
+                    <a
                         href={LINK_WHATS}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 rounded-full bg-papel px-5 py-2 text-sm font-medium text-tinta transition-colors hover:bg-stencil-claro"
+                        className="flex items-center gap-2 rounded-full bg-acento px-5 py-2 text-sm font-medium text-papel transition-colors hover:bg-acento-luz hover:text-tinta"
                     >
                         <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                         Pedir orçamento
@@ -96,26 +107,35 @@ function NavBar() {
                     onClick={() => setMenuOpen(!menuOpen)}
                     aria-expanded={menuOpen}
                     aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
-                    className="p-2 text-papel md:hidden"
+                    className="p-2 text-papel lg:hidden"
                 >
                     {menuOpen ? <X className="h-6 w-6" strokeWidth={1.5} /> : <Menu className="h-6 w-6" strokeWidth={1.5} />}
                 </button>
             </div>
 
             {menuOpen && (
-                <ul className="flex flex-col gap-1 border-t border-white/10 px-6 pb-6 pt-3 sm:px-8 font-texto text-lg md:hidden">
+                <ul className="flex flex-col gap-1 border-t border-white/10 px-6 pb-6 pt-3 sm:px-8 font-texto text-lg lg:hidden">
                     {itens.map((item) => (
                         <li key={item.id}>{link(item, "w-fit py-2")}</li>
                     ))}
-                    <li className="pt-3">
+                    <li className="flex items-center gap-5 pt-3">
                         <a
                             href={LINK_WHATS}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex w-fit items-center gap-2 rounded-full bg-papel px-5 py-2.5 text-base font-medium text-tinta transition-colors hover:bg-stencil-claro"
+                            className="flex w-fit items-center gap-2 rounded-full bg-acento px-5 py-2.5 text-base font-medium text-papel transition-colors hover:bg-acento-luz hover:text-tinta"
                         >
                             <MessageCircle className="h-4 w-4" strokeWidth={1.5} />
                             Pedir orçamento
+                        </a>
+                        <a
+                            href="https://www.instagram.com/_emitattoo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram da EmiTattoo"
+                            className="text-cinza transition-colors hover:text-acento-luz"
+                        >
+                            <SiInstagram className="h-5 w-5" />
                         </a>
                     </li>
                 </ul>
